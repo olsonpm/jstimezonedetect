@@ -1,3 +1,8 @@
+This is a straight fork and git'd version of
+https://bitbucket.org/pellepim/jstimezonedetect
+
+Npm doesn't support installing hg repos, along with the repo itself not properly supporting commonjs.  The following is the readme from the original repo as it was when forked.
+
 ## Introduction
 
 This script gives you the zone info key representing your device's time zone setting. 
