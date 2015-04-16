@@ -2,7 +2,7 @@
 /**
  * This script gives you the zone info key representing your device's time zone setting.
  *
- * @name jsTimezoneDetect
+ * @name jstimezonedetect
  * @version 1.0.5
  * @author Jon Nylander
  * @license MIT License - https://bitbucket.org/pellepim/jstimezonedetect/src/default/LICENCE.txt
@@ -17,7 +17,7 @@
 /**
  * Namespace to hold all the code for timezone detection.
  */
-var jstz = (function () {
+var jstz = (function() {
     'use strict';
     var HEMISPHERE_SOUTH = 's',
 
@@ -29,32 +29,32 @@ var jstz = (function () {
             BASELINE_YEAR: 2014,
             MAX_SCORE: 864000000, // 10 days
             AMBIGUITIES: {
-                'America/Denver':       ['America/Mazatlan'],
-                'America/Chicago':      ['America/Mexico_City'],
-                'America/Santiago':     ['America/Asuncion', 'America/Campo_Grande'],
-                'America/Montevideo':   ['America/Sao_Paulo'],
+                'America/Denver': ['America/Mazatlan'],
+                'America/Chicago': ['America/Mexico_City'],
+                'America/Santiago': ['America/Asuncion', 'America/Campo_Grande'],
+                'America/Montevideo': ['America/Sao_Paulo'],
                 // Europe/Minsk should not be in this list... but Windows.
-                'Asia/Beirut':          ['Asia/Amman', 'Asia/Jerusalem', 'Europe/Helsinki', 'Asia/Damascus', 'Africa/Cairo', 'Asia/Gaza', 'Europe/Minsk'],
-                'Pacific/Auckland':     ['Pacific/Fiji'],
-                'America/Los_Angeles':  ['America/Santa_Isabel'],
-                'America/New_York':     ['America/Havana'],
-                'America/Halifax':      ['America/Goose_Bay'],
-                'America/Godthab':      ['America/Miquelon'],
-                'Asia/Dubai':           ['Asia/Yerevan'],
-                'Asia/Jakarta':         ['Asia/Krasnoyarsk'],
-                'Asia/Shanghai':        ['Asia/Irkutsk', 'Australia/Perth'],
-                'Australia/Sydney':     ['Australia/Lord_Howe'],
-                'Asia/Tokyo':           ['Asia/Yakutsk'],
-                'Asia/Dhaka':           ['Asia/Omsk'],
+                'Asia/Beirut': ['Asia/Amman', 'Asia/Jerusalem', 'Europe/Helsinki', 'Asia/Damascus', 'Africa/Cairo', 'Asia/Gaza', 'Europe/Minsk'],
+                'Pacific/Auckland': ['Pacific/Fiji'],
+                'America/Los_Angeles': ['America/Santa_Isabel'],
+                'America/New_York': ['America/Havana'],
+                'America/Halifax': ['America/Goose_Bay'],
+                'America/Godthab': ['America/Miquelon'],
+                'Asia/Dubai': ['Asia/Yerevan'],
+                'Asia/Jakarta': ['Asia/Krasnoyarsk'],
+                'Asia/Shanghai': ['Asia/Irkutsk', 'Australia/Perth'],
+                'Australia/Sydney': ['Australia/Lord_Howe'],
+                'Asia/Tokyo': ['Asia/Yakutsk'],
+                'Asia/Dhaka': ['Asia/Omsk'],
                 // In the real world Yerevan is not ambigous for Baku... but Windows.
-                'Asia/Baku':            ['Asia/Yerevan'],
-                'Australia/Brisbane':   ['Asia/Vladivostok'],
-                'Pacific/Noumea':       ['Asia/Vladivostok'],
-                'Pacific/Majuro':       ['Asia/Kamchatka', 'Pacific/Fiji'],
-                'Pacific/Tongatapu':    ['Pacific/Apia'],
-                'Asia/Baghdad':         ['Europe/Minsk', 'Europe/Moscow'],
-                'Asia/Karachi':         ['Asia/Yekaterinburg'],
-                'Africa/Johannesburg':  ['Asia/Gaza', 'Africa/Cairo']
+                'Asia/Baku': ['Asia/Yerevan'],
+                'Australia/Brisbane': ['Asia/Vladivostok'],
+                'Pacific/Noumea': ['Asia/Vladivostok'],
+                'Pacific/Majuro': ['Asia/Kamchatka', 'Pacific/Fiji'],
+                'Pacific/Tongatapu': ['Pacific/Apia'],
+                'Asia/Baghdad': ['Europe/Minsk', 'Europe/Moscow'],
+                'Asia/Karachi': ['Asia/Yekaterinburg'],
+                'Africa/Johannesburg': ['Asia/Gaza', 'Africa/Cairo']
             }
         },
 
@@ -214,8 +214,8 @@ var jstz = (function () {
                 if (sample.name === 'Asia/Jerusalem') {
                     if (rule_list[6].s === 1395964800000 && rule_list[6].e === 1411858800000) {
                         return 0;
+                    }
                 }
-            }
             } else if (preliminary_timezone === 'America/Santiago') {
                 if (sample.name === 'America/Asuncion') {
                     if (rule_list[6].s === 1412481600000 && rule_list[6].e === 1397358000000) {
@@ -283,7 +283,7 @@ var jstz = (function () {
                             score += Math.abs(rule_list[j].s - sample.rules[j].s);
                             score += Math.abs(sample.rules[j].e - rule_list[j].e);
 
-                        // The current time zone's DST rules are outside the sample's. Discard.
+                            // The current time zone's DST rules are outside the sample's. Discard.
                         } else {
                             score = 'N/A';
                             break;
@@ -385,7 +385,7 @@ var jstz = (function () {
             }
 
             return {
-                name: function () {
+                name: function() {
                     return preliminary_tz;
                 }
             };
